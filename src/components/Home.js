@@ -14,7 +14,7 @@ class Home extends React.Component {
     }
     componentDidMount = async () => {
         const {user}= this.props.auth0
-        let url = `http://localhost:3001/places`
+        let url = `https://practice02-301.herokuapp.com/places`
         let result = await axios.get(url)
         this.setState({
             placesArr: result.data,
@@ -24,7 +24,7 @@ class Home extends React.Component {
   
     addToFavs = async (idx)=>{
 
-        let url = `http://localhost:3001/addtofavs/${this.state.email}`
+        let url = `https://practice02-301.herokuapp.com/addtofavs/${this.state.email}`
         let selectedPlace={
           placeName:this.state.placesArr[idx].placeName,
           placeImg:this.state.placesArr[idx].placeImg

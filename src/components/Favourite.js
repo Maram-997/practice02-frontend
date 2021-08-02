@@ -18,7 +18,7 @@ import UpdateForm from './UpdateForm';
  }
 componentDidMount = async () =>{
     const {user}= this.props.auth0
-let url = `http://localhost:3001/favs?email=${user.email}`
+let url = `https://practice02-301.herokuapp.com/favs?email=${user.email}`
 let result = await axios.get(url)
 this.setState({
     email:user.email,
@@ -27,7 +27,7 @@ this.setState({
 }
 
 deletePlace = async(idx) =>{
-    let url = `http://localhost:3001/deletePlace/${idx}?email=${this.state.email}`
+    let url = `https://practice02-301.herokuapp.com/deletePlace/${idx}?email=${this.state.email}`
     let result = await axios.delete(url)
     this.setState({
         favsArr:result.data
@@ -62,7 +62,7 @@ updatePlace = async (event) =>{
         show:false,
 
     })
-  let url = `http://localhost:3001/updatePlace/${this.state.index}?email=${this.state.email}`
+  let url = `https://practice02-301.herokuapp.com/updatePlace/${this.state.index}?email=${this.state.email}`
   let result = await axios.put(url , targetedObj)
   this.setState({
       favsArr:result.data
